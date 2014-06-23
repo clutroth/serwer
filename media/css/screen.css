@@ -1,0 +1,10 @@
+body { font-family: "Source Sans Pro", Arial, sans-serif; text-align:center; background:rgba(0,0,0, 0.06); }
+.container { width:900px; }
+.row { text-align:left; }
+div[element] { display:none; }
+textarea { display:block; width:100%; }
+#posts { border-top:1px solid rgba(0,0,0, 0.2); }
+
+blockquote { border-color:rgba(0,0,0, 0.3) !important; margin:2px; }
+img { width:64px !important; height:64px !important; }
+h4 { font-weight:bold; }

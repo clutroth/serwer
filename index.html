@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> pffftitter - Nieudany klon Twittera</title>
+	
+    <link href="media/css/bootstrap.min.css" rel="stylesheet">
+	<link href="media/css/screen.css" rel="stylesheet">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="media/js/bootstrap.min.js"></script>
+	<script src="media/js/application.js"></script>
+	<script src="media/js/application_ws.js"></script>
+	
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div element="auth" class="container">
+		<div class="header">
+			<h1>PFFFTwitter <small>nieudana podróba Twittera</small></h1>
+		</div>
+	
+		<div class="container row">
+			<div class="col-md-6">
+				<h2>Logowanie</h2>
+				<p>jeśli masz konto</p> 
+				<form role="form" method="login">
+					<div class="form-group">
+						<label for="username">Nazwa użytkownika</label>
+						<input type="username" name="username" class="form-control" value="q" />
+					</div>
+					  
+					<div class="form-group">
+						<label for="password">Hasło</label>
+						<input type="password" name="password" class="form-control" value="automatically" />
+					</div>
+					
+					<div class="form-group">
+						<button class="btn btn-lg btn-primary" type="submit">Zaloguj</button>
+						<span class="label label-danger" id="log_error"></span>
+					</div>
+				</form>			
+			</div>
+			<div class="col-md-6">
+				<h2>Rejestracja</h2>
+				<p>jeżeli konta nie posiadasz :)</p>
+				
+				<form role="register_form" method="register">
+					<div class="form-group">
+						<label for="username">Nazwa użytkownika</label>
+						<input type="username" name="username" class="form-control" value="q" placeholder="sugerowana nazwa użytkownika" />
+					</div>
+					  
+					<div class="form-group">
+						<label for="password">Hasło</label>
+						<input type="password" name="password" class="form-control" />
+					</div>
+					
+					<div class="form-group">
+						<label for="password_again">Powtórz hasło</label>
+						<input type="password" name="password_again" class="form-control" />
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Adres e-mail</label>
+						<input type="email" name="email" class="form-control" placeholder="twój adres na który przyjdzie potwierdzenie rejestracji" />
+					</div>
+					
+					<div class="form-group">
+						<button class="btn btn-lg btn-primary" type="submit">Utwórz konto</button>
+						<span class="label label-danger" id="reg_error"></span>
+					</div>
+				</form>			
+				
+			</div>
+		</div>
+	</div>
+	
+	<div element="dashboard" class="container">
+		<div class="header">
+			<h1>PFFFTwitter <small>boli od samego patrzenia</small></h1>
+		</div>	
+		
+		<div class="container row">
+			<div class="col-md-4">
+				<h3>Twój profil</h3>
+				<p>Witaj użytkowniku</p>
+				<p id="user_email" class="label label-info"></p> 
+				
+				
+				<h3>Operacje/Akcje/Triki:</h3>
+				<div class="list-group">
+					<a href="javascript:void(0)" class="list-group-item active">Mój feed</a>
+					<a href="javascript:void(0)" class="list-group-item">Zmień haslo</a>
+					<a href="javascript:void(0)" onclick="ws_close();" class="list-group-item">Wyloguj</a>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<h3>Feedy na portalu</h3>
+				<p>
+					<form method="post">
+						<div class="input-group">
+								<input type="text" placeholder="Opowiedz mi o bolu jaki przemawia patrzac na to wszystko..." id="post_input" name="text" class="form-control">
+								<span class="input-group-btn">
+									<button class="btn btn-danger" type="submit">Zapostuj to światu!</button>
+								</span>
+						</div>
+					</form>					
+				</p>
+				
+				<p id="posts">
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	<div element="activate" class="container">
+		<div class="header">
+			<h1>PFFFTwitter <small>najbardziej beznadziejny projekt lol</small></h1>
+		</div>
+		<div class="container row">
+			<div class="col-md-12">
+				<h2>Aktywacja konta</h2>
+				<p>na twój adres e-mail podany przy rejestracji został przesłany magiczny kod</p>
+				<form role="form" method="activate">
+					<div class="form-group">
+						<label for="key">Kod przesłany w mailu</label>
+						<input type="key" name="key" class="form-control" placeholder="pamiętaj o skopiowaniu samego kodu, nie zaś całej wiadomości :)" />
+					</div>
+					
+					<div class="form-group">
+						<button class="btn btn-lg btn-primary" type="submit">Aktywuj konto</button>
+						<span class="label label-danger" id="act_error"></span>
+					</div>
+				</form>
+			</div>
+		
+	
+	</div>
+	
+	
+  </body>
+</html>
